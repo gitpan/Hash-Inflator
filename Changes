@@ -1,0 +1,10 @@
+---
+global:
+  name: Hash-Inflator
+releases:
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - original version
+    date: 2007-11-25T12:21:32Z
+    tags: []
+    version: 0.01
