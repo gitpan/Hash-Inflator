@@ -1,27 +1,75 @@
-This is the Perl distribution Hash-Inflator.
+NAME
+    Hash::Inflator - Access hash entries through methods
+
+SYNOPSIS
+        my %h = (
+            persons => [
+                {
+                    last_name  => 'Shindou',
+                    first_name => 'Hikaru',
+                },
+                {
+                    last_name  => 'Touya',
+                    first_name => 'Akira',
+                },
+            ],
+            # ...
+        );
+
+        my $obj = Hash::Inflator->new(%h);
+        print $obj->persons->[0]->first_name;
+
+DESCRIPTION
+    This class can inflate a hash so that you can access it using methods
+    instead of plain hash keys. So instead of "$x->{foo}" you can do
+    "$x->foo()".
+
+    Why would we want to do this?
+
+    First, because this way you can quickly prototype a class. Your class
+    can inherit from Hash::Inflator and the code using your class can just
+    assume the attributes are there. You can bother with writing the methods
+    later. Although tools like Class::Accessor and friends make this very
+    easy anyway.
+
+    Second, because we can.
+
+    You can call any method on the object. If the name corresponds to a hash
+    key, its value will be returned. If there is no such key, "undef" will
+    be returned. If the hash contains other hashes (however deep down),
+    those will become inflated as well.
+
+    The code has been taken, with very little adaption, from Net::Jaiku by
+    Rick Measham, with his permission.
+
+METHODS
+    "new"
+        Takes a hash or a hash ref and returns the inflated hash as a
+        reference.
+
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org>.
 
 INSTALLATION
+    See perlmodinstall for information and options on installing Perl
+    modules.
 
-Hash-Inflator installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+AVAILABILITY
+    The latest version of this module is available from the Comprehensive
+    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
+    CPAN site near you. Or see <http://search.cpan.org/dist/Hash-Inflator/>.
 
-    % cpan Hash::Inflator
+AUTHORS
+    Rick Measham, "<rickm@cpan.org>"
 
-Download it, unpack it, then build it as per the usual:
+    Marcel Grünauer, "<marcel@cpan.org>"
 
-    % perl Makefile.PL
-    % make && make test
+COPYRIGHT AND LICENSE
+    Copyright 2007-2009 by the authors.
 
-Then install it:
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
-    % make install
-
-DOCUMENTATION
-
-Hash-Inflator documentation is available as in POD. So you can do:
-
-    % perldoc Hash::Inflator
-
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
