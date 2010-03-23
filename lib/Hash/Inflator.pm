@@ -1,8 +1,10 @@
-package Hash::Inflator;
-use 5.006;
+use 5.008;
 use strict;
 use warnings;
-our $VERSION = '0.02';
+
+package Hash::Inflator;
+our $VERSION = '1.100820';
+# ABSTRACT: Access hash entries through methods
 
 sub new {
     my $class = shift;
@@ -29,13 +31,20 @@ sub AUTOLOAD {
     $self->{$AUTOLOAD};
 }
 1;
-__END__
 
-=for stopwords Measham
+
+__END__
+=pod
 
 =head1 NAME
 
 Hash::Inflator - Access hash entries through methods
+
+=head1 VERSION
+
+version 1.100820
+
+=for stopwords Measham
 
 =head1 SYNOPSIS
 
@@ -80,43 +89,44 @@ Measham, with his permission.
 
 =head1 METHODS
 
-=over 4
-
-=item C<new>
+=head2 new
 
 Takes a hash or a hash ref and returns the inflated hash as a reference.
 
-=back
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Hash-Inflator>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://search.cpan.org/dist/Hash-Inflator/>.
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see
+L<http://search.cpan.org/dist/Hash-Inflator/>.
+
+The development version lives at
+L<http://github.com/hanekomu/Hash-Inflator/>.
+Instead of sending patches, please fork this project using the standard git
+and github infrastructure.
 
 =head1 AUTHORS
 
-Rick Measham, C<< <rickm@cpan.org> >>
-
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
+  Rick Measham <rickm@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2007-2009 by the authors.
+This software is copyright (c) 2008 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 
